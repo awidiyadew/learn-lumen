@@ -31,3 +31,11 @@ $router->get('bar/{id}', function ($id) {
 $router->get('kucing/{id}/{sound}', 'KucingController@show');
 
 $router->get('kucing2/{id}/{sound}', 'KucingController@showJson');
+
+$router->get('user', function(){
+    return \App\User::all();
+});
+
+$router->get('user/{id}', function($id){
+    return \App\User::where('id', $id)->get();
+});
