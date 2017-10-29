@@ -12,4 +12,12 @@ class KucingController extends Controller {
         return "Kucing ".$id." sounds like ".$sound; 
     }
 
+    public function showJson($id, $sound) {
+        return response()
+                    ->json([
+                                'success' => true,
+                                'data' => 'kucing '.$id.' sound like '.$sound
+                            ], 200);
+    }
+
 }

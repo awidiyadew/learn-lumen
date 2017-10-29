@@ -29,3 +29,5 @@ $router->get('bar/{id}', function ($id) {
 });
 
 $router->get('kucing/{id}/{sound}', 'KucingController@show');
+
+$router->get('kucing2/{id}/{sound}', 'KucingController@showJson');
