@@ -16,5 +16,16 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('foo', function () {
-    return 'hello world';
+    return '
+                {
+                    "success"   : true,
+                    "data"      : 1
+                }
+            ';
 });
+
+$router->get('bar/{id}', function ($id) {
+    return 'bar '.$id;
+});
+
+$router->get('kucing/{id}/{sound}', 'KucingController@show');
