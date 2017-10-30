@@ -26,9 +26,9 @@ class UserController extends Controller {
 
     public function createUser(Request $request) {
         $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
         $user->save();
 
         if ($user) {
@@ -42,4 +42,20 @@ class UserController extends Controller {
         return response($res);
     }
 
+    public function getUser(Request $request, $id) {
+        $user = User::where('id', $id)->get();
+        
+        if ($user) {
+            $res['success'] = true;
+            $res['data'] = $user;
+            return response($res);
+        } else {
+            $res['success'] = false;
+            $res['data'] = [];
+            $res['error'] = 'Something when wrong!';
+            return response($res);
+        }
+      
+    }
+    
 }

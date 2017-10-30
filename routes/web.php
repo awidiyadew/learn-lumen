@@ -34,8 +34,10 @@ $router->get('kucing2/{id}/{sound}', 'KucingController@showJson');
 
 $router->get('user', 'UserController@getUsers');
 
-$router->get('user/{id}', function($id){
-    return \App\User::where('id', $id)->get();
-});
+//$router->get('user/{id}', function($id){
+//    return \App\User::where('id', $id)->get();
+//});
+
+$router->get('user/{id}', 'UserController@getUser');
 
 $router->post('user','UserController@createUser');
